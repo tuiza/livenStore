@@ -4,6 +4,7 @@
       "baseUrl": ".",
       "paths": {
         "screens/*": ["src/screens/*"],
+        "services/*": ["src/services/*"],
       }
     }
 }
