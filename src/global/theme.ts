@@ -2,10 +2,9 @@ export default {
   colors: {
     background: '#fff',
     text: '#050617',
-    light_text: 'rgba(23, 23, 27, 0.6)',
-    detail: '#747476',
-    green: '#00d172',
+    green: '#78D98A',
     red: '#ff3b30',
-  
+    cinza: '#E6E6E6',
+    roxo: '#08012A',
   },
 };

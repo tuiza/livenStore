@@ -8,7 +8,7 @@ import Home from 'screens/Home';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <Home />
     </SafeAreaView>

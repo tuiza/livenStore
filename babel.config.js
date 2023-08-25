@@ -8,6 +8,7 @@ module.exports = {
           // This needs to be mirrored in tsconfig.json
           screens: "./src/Screens",
           services: "./src/Services",
+          components: "./src/components",
         },
       },
     ],

@@ -1,6 +1,6 @@
 import api from './api';
 
-export type Product = {
+export type ProductType = {
   id: number;
   title: string;
   price: string;
@@ -10,7 +10,7 @@ export type Product = {
 };
 
 export default {
-  async index(): Promise<Product[]> {
+  async index(): Promise<ProductType[]> {
     try {
       const response = await api.get(`/`);
       return response.data;
@@ -18,7 +18,7 @@ export default {
       return [];
     }
   },
-  async show(productId: string): Promise<Product | undefined> {
+  async show(productId: number): Promise<ProductType | undefined> {
     try {
       const response = await api.get(`/${productId}`);
       return response.data;
