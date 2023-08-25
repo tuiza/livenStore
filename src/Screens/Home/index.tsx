@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
-import Product from 'components/Product/'
+import {Product, Filter} from 'components/index'
 
 function App() {
     /* const [allProducts, setAllProducts] = useState<ProductType[]>([]);
@@ -24,6 +24,7 @@ function App() {
 
     return (
         <S.Container>
+            <Filter />
             <Product />
         </S.Container>
     )
