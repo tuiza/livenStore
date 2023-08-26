@@ -3,19 +3,14 @@ import * as S from './styles'
 import ProductService, { ProductType } from 'services/products'
 import { FlatList } from 'react-native';
 import Feather from 'react-native-vector-icons/MaterialCommunityIcons'
-import Filter from 'components/Filter';
-
-type ProductsType = ProductType & {
-    liked: boolean
-}
+import {Filter, Categories} from 'components/index';
 
 function Product() {
-    const [products, setProducts] = useState<ProductsType[]>([]);
+    const [products, setProducts] = useState<ProductType[]>([]);
 
     async function getProduct() {
         const productsResponse = await ProductService.index()
-        const productsWithLike = productsResponse.map(product => ({ ...product, liked: false }))
-        setProducts(productsWithLike)
+        setProducts(productsResponse)
     }
 
     const handleLike = (id: number) => {
@@ -24,7 +19,6 @@ function Product() {
                 item.id === id ? { ...item, liked: !item.liked } : item
             )
         );
-        // colocar no async storage
     }
 
     useEffect(() => {
@@ -34,6 +28,7 @@ function Product() {
     return (
         <>
             <Filter setProducts={setProducts} products={products} getPrduct={getProduct } />
+            <Categories setProducts={setProducts} getPrduct={getProduct} />
             <FlatList
                 style={{ alignSelf: 'center' }}
                 data={products}

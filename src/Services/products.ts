@@ -7,13 +7,18 @@ export type ProductType = {
   category: string;
   description: string;
   image: string;
+  liked: boolean;
 };
 
 export default {
   async index(): Promise<ProductType[]> {
     try {
       const response = await api.get(`/`);
-      return response.data;
+      const productsWithLike = response.data.map((product:ProductType )  => ({
+        ...product,
+        liked: false,
+      }));
+      return productsWithLike;
     } catch (error) {
       return [];
     }
