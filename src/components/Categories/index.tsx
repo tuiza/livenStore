@@ -34,15 +34,20 @@ function Categories({ products, getPrduct, setProducts }: FilterProps) {
         getCategories()
     }, [])
 
+    const categoriesData = [
+        'All',
+        ...categories
+    ]
+
     return (
         <S.Container>
             <FlatList
-                data={['All', ...categories]}
+                data={categoriesData}
                 horizontal={true}
                 keyExtractor={(item, i) => i.toString()}
                 renderItem={({ item }: {item: CategoriesType}) => (
             <S.Category onPress={() => getCategory(item)}>
-                <Feather name='heart' size={22} color="#db3333" />
+                <Text style={{ color: 'black' }}>{item.toUpperCase()}</Text>
             </S.Category>
             )}
         />

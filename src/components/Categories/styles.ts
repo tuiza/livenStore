@@ -10,8 +10,8 @@ export const Container = styled.View`
 export const Category = styled.TouchableOpacity`
   background-color: ${colors.background};
   border-radius: 10px;
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: auto;
   padding: 0 10px;
   color: ${colors.green};
   margin: 12px;
