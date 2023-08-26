@@ -3,14 +3,14 @@ import {
   SafeAreaView, StatusBar,
   useColorScheme
 } from 'react-native';
-import Home from 'screens/Home';
+import AppRoutes from './src/routes/AppRoutes';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Home />
+      <AppRoutes />
     </SafeAreaView>
   )
 }
