@@ -9,6 +9,7 @@ export const Container = styled.TextInput`
   height: 40px;
   padding: 0 10px;
   color: ${colors.green};
+  margin: 12px;
 `;
 
 export const Image = styled.Image`
@@ -20,9 +21,22 @@ export const Image = styled.Image`
   margin: 10px;
 `;
 
-export const Like = styled.TouchableOpacity`
+export const Search = styled.TouchableOpacity`
   position: absolute;
+  top: 20px;
+  right: 20px;
   z-index: 1;
   padding: 10px;
   align-self: flex-end;
+  justify-content: center;
+`;
+
+export const Clear = styled(Search)`
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  z-index: 1;
+  padding: 10px;
+  align-self: flex-end;
+  justify-content: center;
 `;

@@ -24,7 +24,6 @@ function App() {
 
     return (
         <S.Container>
-            <Filter />
             <Product />
         </S.Container>
     )

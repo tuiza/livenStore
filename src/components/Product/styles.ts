@@ -12,10 +12,8 @@ export const Container = styled.TouchableOpacity`
   margin-bottom: 30px;
 `;
 
-export const Row = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+export const List = styled.FlatList`
+  align-self: center;
 `;
 
 export const ImageContainer = styled.View`
@@ -27,6 +25,7 @@ export const ImageContainer = styled.View`
 export const Image = styled.Image`
   object-fit: contain;
   align-self: center;
+  justify-content: flex-end;
   width: 80%;
   height: 80%;
   border-radius: 10px;
