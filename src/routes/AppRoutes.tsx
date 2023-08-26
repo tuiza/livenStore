@@ -11,18 +11,19 @@ const Tab = createBottomTabNavigator();
 
 const AppRoutes = () => {
     const getIcon = (routeName: string) => {
-        let iconName;
+        let iconName: string;
 
         switch (routeName) {
-            case 'Home':
-                iconName = 'home';
-                break;
             case 'Cart':
-                iconName = 'shopping-cart';
+                iconName = 'cart';
                 break;
             case 'Favorites':
                 iconName = 'heart';
                 break;
+            default:
+                iconName = 'home';
+                break;
+
         }
 
         return iconName;
@@ -32,20 +33,7 @@ const AppRoutes = () => {
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ color, size }) => {
-                        let iconName = 'Home';
-
-                        switch (route.name) {
-                            case 'Home':
-                                iconName = 'home';
-                                break;
-                            case 'Cart':
-                                iconName = 'cart';
-                                break;
-                            case 'Favorites':
-                                iconName = 'heart';
-                                break;
-                        }
-
+                        const iconName = getIcon(route.name);
                         return <Icon name={iconName} size={size} color={color} />;
                     },
                     headerShown: false,
