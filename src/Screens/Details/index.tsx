@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import theme from '../../global/theme';
+import { Text } from 'react-native';
 
 export type ProductType = {
     id: number;
@@ -17,8 +18,9 @@ export type ProductType = {
 function Details() {
     const route = useRoute();
     const navigation = useNavigation();
+    const [readMore, setReadMore] = useState(false);
 
-    const {category, id, image, title, price, description} = route.params as ProductType;
+    const { category, id, image, title, price, description } = route.params as ProductType;
 
     const hasSize = () => {
         const isClothing = [`men's clothing`, `women's clothing`].includes(category)
@@ -48,7 +50,11 @@ function Details() {
                     {category}
                 </S.Category>
                 <S.Price>R$ {price}</S.Price>
-                <S.Description>{description}</S.Description>
+                <S.Description numberOfLines={!readMore ? 2 : undefined}>{description}</S.Description>
+                <S.ReadMore onPress={() => setReadMore(!readMore)}>
+                    <S.TextSize>{readMore ? 'Ler Menos' : 'Ler Mais'}</S.TextSize>
+                    <Icon name={readMore ? 'chevron-up' : "chevron-down"} size={25} color={theme.colors.background} />
+                </S.ReadMore>
                 {hasSize() && <S.SizeContainer>
                     <S.TextSize >Tamanho :</S.TextSize>
                     <S.SizeButtonContainer>
@@ -60,7 +66,7 @@ function Details() {
                     </S.SizeButtonContainer>
                 </S.SizeContainer>
                 }
-                <S.Quantity>
+                {/* <S.Quantity>
                     <S.ButtonQuantity>
                         <Icon name="minus" size={25} color={theme.colors.red} />
                     </S.ButtonQuantity>
@@ -68,7 +74,7 @@ function Details() {
                     <S.ButtonQuantity>
                         <Icon name="plus" size={25} color={theme.colors.green} />
                     </S.ButtonQuantity>
-                </S.Quantity>
+                </S.Quantity> */}
             </S.Content>
             <S.BuyContainer>
                 <S.ButtonAddCart>

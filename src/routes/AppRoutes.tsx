@@ -45,7 +45,7 @@ const AppRoutes = () => {
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
                         height: 50,
-                        backgroundColor: '#fff',
+                        backgroundColor: '#E6E6E6',
                     },
                     tabBarShowLabel: false,
                 })}
