@@ -41,10 +41,10 @@ const AppRoutes = () => {
                     tabBarActiveTintColor: '#101012',
                     tabBarInactiveTintColor: '#CCC',
                     tabBarStyle: {
-                        paddingBottom: 10,
+                        paddingBottom: 5,
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
-                        height: 60,
+                        height: 50,
                         backgroundColor: '#fff',
                     },
                     tabBarShowLabel: false,

@@ -5,13 +5,11 @@ export const Container = styled.View`
     display: flex;
     flex: 1;
     background-color: ${theme.colors.roxo};
-    
 `
 
 export const Button = styled.TouchableOpacity`
     padding: 10px;
     border-radius: 5px;
-    margin-top: 10px;
 `
 
 export const Header = styled.View`
@@ -25,17 +23,27 @@ export const Header = styled.View`
 export const Image = styled.Image`
     width: 100%;
     height: 250px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    margin-bottom: 10px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-bottom: 5px;
 `
 
 export const Content = styled.ScrollView`
     display: flex;
-    flex: 1;
-    padding: 10px;
     background-color: ${theme.colors.roxo};
-    margin-bottom: -30px;
+    padding: 10px;
+    flex: 1;
+`
+
+export const Category = styled.Text`
+    font-size: 12px;
+    width: 30%;
+    text-align: center;
+    padding: 2px;
+    color: ${theme.colors.cinza};
+    border: 1px solid ${theme.colors.cinza};
+    border-radius: 5px;
+    margin-top: 5px;
 `
 
 export const Title = styled.Text`
@@ -45,12 +53,12 @@ export const Title = styled.Text`
 `
 
 export const Description = styled.Text`
-  font-size: 16px;
+  font-size: 14px;
   color: ${theme.colors.cinza};
 `;
 
 export const Price = styled.Text`
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: ${theme.colors.green};
 `
@@ -75,24 +83,41 @@ export const TextButtonAdd = styled.Text`
     margin-left: 10px;
 `
 
-export const ButtonBuy = styled.TouchableOpacity`
+export const BuyContainer = styled.View`
     display: flex;
     flex-direction: row;
-    align-items: center;
-    width: 70%;
-    justify-content: center;
-    background-color: ${theme.colors.roxo};
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-self: flex-end;
     padding: 10px;
-    border-radius: 5px;
-    margin-top: 40px;
+`
+
+export const ButtonAddCart = styled.TouchableOpacity`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: ${theme.colors.green};
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 40px;
+  align-self: center;
+  border: 1px solid ${theme.colors.green};
+`;
+
+export const ButtonBuyNow = styled.TouchableOpacity`
+    width: 45%;
+    justify-content: center;
+    background-color: ${theme.colors.green};
+    padding: 10px;
+    border-radius: 10px;
     align-self: center;
 `
 
+
 export const TextButtonBuy = styled.Text`
     font-size: 16px;
-    font-weight: bold;
     color: ${theme.colors.green};
-    margin-left: 10px;
 `
 
 export const Quantity = styled.View`
@@ -119,3 +144,4 @@ export const ButtonQuantity = styled.TouchableOpacity`
     border-radius: 5px;
     border: 0.5px solid ${theme.colors.cinza};
 `
+

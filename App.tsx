@@ -5,10 +5,12 @@ import {
 } from 'react-native';
 import AppRoutes from './src/routes/AppRoutes';
 
+import theme from './src/global/theme';
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#E6E6E6' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.roxo }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <AppRoutes />
     </SafeAreaView>
