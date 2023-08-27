@@ -1,23 +1,25 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
 
-import Home from 'screens/Home';
 import Cart from 'screens/Cart';
 import Favorites from 'screens/Favorites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ProductRoutes from './ProductRoutes';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const AppRoutes = () => {
     const getIcon = (routeName: string) => {
         let iconName: string;
 
         switch (routeName) {
-            case 'Cart':
+            case 'Carrinho':
                 iconName = 'cart';
                 break;
-            case 'Favorites':
+            case 'Favoritos':
                 iconName = 'heart';
                 break;
             default:
@@ -44,9 +46,9 @@ const AppRoutes = () => {
                     },
                 })}
             >
-                <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Cart" component={Cart} />
-                <Tab.Screen name="Favorites" component={Favorites} />
+                <Tab.Screen name="Home" component={ProductRoutes} />
+                <Tab.Screen name="Carrinho" component={Cart} />
+                <Tab.Screen name="Favoritos" component={Favorites} />
             </Tab.Navigator>
         </NavigationContainer>
     );

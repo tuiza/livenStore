@@ -3,10 +3,12 @@ import * as S from './styles'
 import ProductService, { ProductType } from 'services/products'
 import { FlatList } from 'react-native';
 import Feather from 'react-native-vector-icons/MaterialCommunityIcons'
-import {Filter, Categories} from 'components/index';
+import { Filter, Categories } from 'components/index';
+import { useNavigation } from '@react-navigation/native';
 
 function Product() {
     const [products, setProducts] = useState<ProductType[]>([]);
+    const navigation = useNavigation()
 
     async function getProduct() {
         const productsResponse = await ProductService.index()
@@ -27,7 +29,7 @@ function Product() {
 
     return (
         <>
-            <Filter setProducts={setProducts} products={products} getPrduct={getProduct } />
+            <Filter setProducts={setProducts} products={products} getPrduct={getProduct} />
             <Categories setProducts={setProducts} getPrduct={getProduct} />
             <FlatList
                 style={{ alignSelf: 'center' }}
@@ -37,7 +39,9 @@ function Product() {
                 showsVerticalScrollIndicator={true}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => (
-                    <S.Container>
+                    <S.Container onPress={() => navigation.navigate('Details', {
+                        item: item
+                    })}>
                         <S.ImageContainer>
                             <S.Like onPress={() => { handleLike(item.id) }}>
                                 <Feather name={item.liked ? 'heart' : 'heart-outline'} size={22} color="#b82020" />
