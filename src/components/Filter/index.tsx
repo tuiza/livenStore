@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import { ProductType } from 'services/products'
-import Feather from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 type ProductsType = ProductType & {
     liked: boolean
@@ -46,17 +46,22 @@ function Filter({ products, setProducts, getPrduct }: FilterProps) {
     return (
         <>
             <S.Container
-                placeholder="Pesquisar"
+                placeholder="Buscar na Liven Store"
                 value={search}
+                placeholderTextColor={'#171164'}
                 onChangeText={(text) => searchFilter(text)}
-                underlineColorAndroid="transparent"
+                underlineColorAndroid={'transparent'}
+                onBlur={() => searchFilter(search)}
             />
-            <S.Search onPress={() => searchFilter(search)}>
-                {search.length > 0 ? (
-                    <S.Clear onPress={() => handleClear()}><Feather name="close" size={24} color="#08012A" /></S.Clear>
-                ): (<Feather name="magnify" size={24} color="#08012A" />)}
-                
-            </S.Search>
+            {search.length > 0 ?
+                (<S.Clear onPress={handleClear}>
+                    <Icon name="close" size={25} color="#171164" />
+                </S.Clear>)
+                : (<S.Search onPress={() => searchFilter(search)}>
+                    <Icon name="magnify" size={25} color="#171164" />
+                </S.Search>)
+            }
+            
         </>
 
     )
