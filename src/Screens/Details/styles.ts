@@ -46,6 +46,7 @@ export const Category = styled.Text`
     margin-top: 5px;
 `
 
+
 export const Title = styled.Text`
     font-size: 20px;
     font-weight: bold;
@@ -62,6 +63,41 @@ export const Price = styled.Text`
     font-weight: bold;
     color: ${theme.colors.green};
 `
+
+export const SizeContainer = styled.View`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+`
+
+export const SizeButtonContainer = styled.View`
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-self: flex-end;
+    align-self: flex-end;
+    gap: 10px;
+`
+
+export const SizeButton = styled.TouchableOpacity`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 10%;
+    justify-content: center;
+    border: 1px solid ${theme.colors.cinza};
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+`
+
+export const TextSize = styled.Text`
+    font-size: 13px;
+    font-weight: bold;
+    color: ${theme.colors.cinza};
+`
+
 
 export const ButtonAdd = styled.TouchableOpacity`
     display: flex;

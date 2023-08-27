@@ -18,10 +18,11 @@ function Details() {
     const route = useRoute();
     const navigation = useNavigation();
 
+    const {category, id, image, title, price, description} = route.params as ProductType;
+
     const hasSize = () => {
-        const category = route.params?.category;
         const isClothing = [`men's clothing`, `women's clothing`].includes(category)
-        if ( isClothing && route.params.id !== 1) {
+        if (isClothing && id !== 1) {
             return true;
         }
         return false;
@@ -39,15 +40,15 @@ function Details() {
                     <Icon name="heart" size={25} color="#b93b3b" />
                 </S.Button>
             </S.Header>
-            <S.Image source={{ uri: route.params?.image }}
+            <S.Image source={{ uri: image }}
                 resizeMode="center" />
             <S.Content>
-                <S.Title>{route.params?.title}</S.Title>
+                <S.Title>{title}</S.Title>
                 <S.Category>
-                    {route.params?.category}
+                    {category}
                 </S.Category>
-                <S.Price>R$ {route.params?.price}</S.Price>
-                <S.Description>{route.params?.description}</S.Description>
+                <S.Price>R$ {price}</S.Price>
+                <S.Description>{description}</S.Description>
                 {hasSize() && <S.SizeContainer>
                     <S.TextSize >Tamanho :</S.TextSize>
                     <S.SizeButtonContainer>
@@ -73,7 +74,7 @@ function Details() {
                 <S.ButtonAddCart>
                     <S.TextButtonBuy>Adicionar ao carrinho</S.TextButtonBuy>
                 </S.ButtonAddCart>
-                <S.ButtonBuyNow onPress={() => navigation.navigate('Carrinho')}>
+                <S.ButtonBuyNow onPress={() => navigation.navigate('Carrinho' as never)}>
                     <S.TextButtonAdd>Comprar agora</S.TextButtonAdd>
                 </S.ButtonBuyNow>
             </S.BuyContainer>
