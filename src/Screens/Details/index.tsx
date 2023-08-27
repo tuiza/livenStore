@@ -17,7 +17,17 @@ export type ProductType = {
 function Details() {
     const route = useRoute();
     const navigation = useNavigation();
-    console.log(route.params?.image)
+
+    const hasSize = () => {
+        const category = route.params?.category;
+        const isClothing = [`men's clothing`, `women's clothing`].includes(category)
+        if ( isClothing && route.params.id !== 1) {
+            return true;
+        }
+        return false;
+    }
+
+    const sizes = ['P', 'M', 'G', 'GG']
 
     return (
         <S.Container>
@@ -25,7 +35,6 @@ function Details() {
                 <S.Button onPress={() => navigation.goBack()}>
                     <Icon name="arrow-left" size={30} color={theme.colors.roxo} />
                 </S.Button>
-
                 <S.Button>
                     <Icon name="heart" size={25} color="#b93b3b" />
                 </S.Button>
@@ -39,6 +48,17 @@ function Details() {
                 </S.Category>
                 <S.Price>R$ {route.params?.price}</S.Price>
                 <S.Description>{route.params?.description}</S.Description>
+                {hasSize() && <S.SizeContainer>
+                    <S.TextSize >Tamanho :</S.TextSize>
+                    <S.SizeButtonContainer>
+                        {sizes.map((size, i) => (
+                            <S.SizeButton key={i}>
+                                <S.TextSize>{size}</S.TextSize>
+                            </S.SizeButton>
+                        ))}
+                    </S.SizeButtonContainer>
+                </S.SizeContainer>
+                }
                 <S.Quantity>
                     <S.ButtonQuantity>
                         <Icon name="minus" size={25} color={theme.colors.red} />
@@ -53,7 +73,7 @@ function Details() {
                 <S.ButtonAddCart>
                     <S.TextButtonBuy>Adicionar ao carrinho</S.TextButtonBuy>
                 </S.ButtonAddCart>
-                <S.ButtonBuyNow>
+                <S.ButtonBuyNow onPress={() => navigation.navigate('Carrinho')}>
                     <S.TextButtonAdd>Comprar agora</S.TextButtonAdd>
                 </S.ButtonBuyNow>
             </S.BuyContainer>
