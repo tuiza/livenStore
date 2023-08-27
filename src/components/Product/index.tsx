@@ -39,9 +39,7 @@ function Product() {
                 showsVerticalScrollIndicator={true}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => (
-                    <S.Container onPress={() => navigation.navigate('Details', {
-                        item: item
-                    })}>
+                    <S.Container onPress={() => navigation.navigate('Details', item)}>
                         <S.ImageContainer>
                             <S.Like onPress={() => { handleLike(item.id) }}>
                                 <Feather name={item.liked ? 'heart' : 'heart-outline'} size={22} color="#b82020" />

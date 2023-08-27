@@ -34,12 +34,13 @@ export const Image = styled.Image`
 
 export const Title = styled.Text`
   font-weight: bold;
-  color: ${colors.text};
+  color: ${colors.background};
 `;
 
 export const Price = styled.Text`
-  color: ${colors.roxo};
+  color: ${colors.green};
   font-weight: bold;
+  font-style: italic;
 `;
 
 export const Like = styled.TouchableOpacity`

@@ -8,7 +8,7 @@ export const Container = styled.TextInput`
   border-radius: 20px;
   height: 40px;
   padding: 0 10px;
-  color: ${colors.green};
+  color: ${colors.roxo};
   margin: 12px;
 `;
 

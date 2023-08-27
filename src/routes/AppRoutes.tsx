@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductRoutes from './ProductRoutes';
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
 const AppRoutes = () => {
     const getIcon = (routeName: string) => {
@@ -39,16 +38,21 @@ const AppRoutes = () => {
                         return <Icon name={iconName} size={size} color={color} />;
                     },
                     headerShown: false,
-                    tabBarActiveTintColor: '#b82020',
-                    tabBarInactiveTintColor: '#000',
+                    tabBarActiveTintColor: '#101012',
+                    tabBarInactiveTintColor: '#CCC',
                     tabBarStyle: {
                         paddingBottom: 10,
+                        borderTopLeftRadius: 20,
+                        borderTopRightRadius: 20,
+                        height: 60,
+                        backgroundColor: '#fff',
                     },
+                    tabBarShowLabel: false,
                 })}
             >
                 <Tab.Screen name="Home" component={ProductRoutes} />
-                <Tab.Screen name="Carrinho" component={Cart} />
                 <Tab.Screen name="Favoritos" component={Favorites} />
+                <Tab.Screen name="Carrinho" component={Cart} />
             </Tab.Navigator>
         </NavigationContainer>
     );
