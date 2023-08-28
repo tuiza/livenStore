@@ -8,7 +8,7 @@ export const Container = styled.View`
   padding: 20px;
 `;
 
-export const Product = styled.TouchableOpacity`
+export const Product = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

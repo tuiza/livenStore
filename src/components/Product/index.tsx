@@ -14,19 +14,19 @@ function Product() {
         setProducts(productsResponse)
     }
 
-    const handleLike = (id: number) => {
+    /* const handleLike = (id: number) => {
         setProducts((prev) =>
             prev?.map((item) =>
                 item.id === id ? { ...item, liked: !item.liked } : item
             )
         );
-    }
+    } */
 
     const Product = ({ item }: { item: ProductType }) => {
         return (
             <S.Container onPress={() => navigation.navigate('Details', item)}>
                 <S.ImageContainer>
-                    <LikeButton handleLike={handleLike} itemId={item.id} liked={item.liked} />
+                    <LikeButton handleLike={()=> {}} item={item} liked={true} />
                     <S.Image source={{ uri: item?.image }} />
                 </S.ImageContainer>
                 <S.Title numberOfLines={1} >{item?.title}</S.Title>

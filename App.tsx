@@ -6,16 +6,19 @@ import {
 import AppRoutes from './src/routes/AppRoutes';
 
 import theme from './src/global/theme';
-import {CartProvider}  from 'contexts/ProductContext';
+import { CartProvider } from 'contexts/ProductContext';
+import { FavoritesProvider } from 'contexts/FavoriteContext';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   return (
     <CartProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <AppRoutes />
-      </SafeAreaView>
+      <FavoritesProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.cinza }}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <AppRoutes />
+        </SafeAreaView>
+      </FavoritesProvider>
     </CartProvider>
   )
 }

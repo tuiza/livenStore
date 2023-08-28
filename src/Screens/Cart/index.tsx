@@ -9,21 +9,26 @@ import { ButtonQuantity, Quantity, TextQuantity } from 'screens/Details/styles';
 import theme from '../../global/theme';
 
 function Cart() {
-    const { totalProducts, totalPrice, cart, handleRemoveFromCart, handleAddToCart } = useContext(ProductContext)
-    const [quantity, setQuantity] = useState(cart.quantity)
+    const { totalProducts,
+        totalPrice,
+        cart,
+        handleRemoveAllFromCart,
+        handleAddOneToCart,
+        handleRemoveAll,
+        handleRemoveOneFromCart } = useContext(ProductContext)
     const navigation = useNavigation()
 
     const total = totalProducts > 1 ? `${totalProducts} itens` : `${totalProducts} item`
 
     return (
         <>
-            <ScreenHeader title="Carrinho" />
+            <ScreenHeader title='Carrinho' />
             <S.Header>
                 <S.TotalContainer>
                     <S.TotalText>Subtotal  </S.TotalText>
-                    <S.TotalPrice><S.R>R$</S.R>{totalPrice}</S.TotalPrice>
+                    <S.TotalPrice><S.R>R$</S.R>{totalPrice.toFixed(2)}</S.TotalPrice>
                 </S.TotalContainer>
-                <S.BuyButton>
+                <S.BuyButton onPress={() => handleRemoveAll()}>
                     <S.BuyText>Finalizar compra ({total})</S.BuyText>
                 </S.BuyButton>
             </S.Header>
@@ -31,24 +36,24 @@ function Cart() {
                 data={cart}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }: { item: CartType }) => (
-                    <S.Product onPress={() => navigation.navigate('Details', item)}>
+                    <S.Product>
                         <S.ProductImage source={{ uri: item.image }} />
                         <S.Column>
                             <S.ProductInfo>
                                 <S.ProductName numberOfLines={1} >{item.title}</S.ProductName>
-                                <S.ProductPrice>R$ {item.price}</S.ProductPrice>
+                                <S.ProductPrice>R$ {Number(item.price).toFixed(2)}</S.ProductPrice>
                             </S.ProductInfo>
                             <S.ButtonsContainer>
                                 <Quantity>
-                                    <ButtonQuantity onPress={() => handleRemoveFromCart(item)} disabled={item.quantity === 1}>
+                                    <ButtonQuantity onPress={() => handleRemoveOneFromCart(item)}>
                                         <Icon name="minus" size={25} color={theme.colors.red} />
                                     </ButtonQuantity>
                                     <TextQuantity>{item.quantity}</TextQuantity>
-                                    <ButtonQuantity onPress={() => handleAddToCart(item)} >
+                                    <ButtonQuantity onPress={() => handleAddOneToCart(item)} >
                                         <Icon name="plus" size={25} color={theme.colors.green} />
                                     </ButtonQuantity>
                                 </Quantity>
-                                <S.RemoveButton onPress={() => handleRemoveFromCart(item.id)}>
+                                <S.RemoveButton onPress={() => handleRemoveAllFromCart(item)}>
                                     <Icon name="delete" size={24} color="#fff" />
                                 </S.RemoveButton>
                             </S.ButtonsContainer>
