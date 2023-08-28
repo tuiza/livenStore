@@ -39,12 +39,13 @@ function Details() {
                     <Icon name="arrow-left" size={30} color={theme.colors.roxo} />
                 </S.Button>
                 <S.Button>
-                    <Icon name="heart" size={25} color="#b93b3b" />
+                    <Icon name="heart" size={25} color={theme.colors.red} />
                 </S.Button>
             </S.Header>
             <S.Image source={{ uri: image }}
                 resizeMode="center" />
-            <S.Content>
+            <S.InfosContainer>
+            <S.Infos>
                 <S.Title>{title}</S.Title>
                 <S.Category>
                     {category}
@@ -53,7 +54,7 @@ function Details() {
                 <S.Description numberOfLines={!readMore ? 2 : undefined}>{description}</S.Description>
                 <S.ReadMore onPress={() => setReadMore(!readMore)}>
                     <S.TextSize>{readMore ? 'Ler Menos' : 'Ler Mais'}</S.TextSize>
-                    <Icon name={readMore ? 'chevron-up' : "chevron-down"} size={25} color={theme.colors.background} />
+                    <Icon name={readMore ? 'chevron-up' : "chevron-down"} size={25} color={theme.colors.roxo} />
                 </S.ReadMore>
                 {hasSize() && <S.SizeContainer>
                     <S.TextSize >Tamanho :</S.TextSize>
@@ -66,7 +67,7 @@ function Details() {
                     </S.SizeButtonContainer>
                 </S.SizeContainer>
                 }
-                {/* <S.Quantity>
+                <S.Quantity>
                     <S.ButtonQuantity>
                         <Icon name="minus" size={25} color={theme.colors.red} />
                     </S.ButtonQuantity>
@@ -74,8 +75,9 @@ function Details() {
                     <S.ButtonQuantity>
                         <Icon name="plus" size={25} color={theme.colors.green} />
                     </S.ButtonQuantity>
-                </S.Quantity> */}
-            </S.Content>
+                </S.Quantity>
+                </S.Infos>
+            </S.InfosContainer>
             <S.BuyContainer>
                 <S.ButtonAddCart>
                     <S.TextButtonBuy>Adicionar ao carrinho</S.TextButtonBuy>

@@ -7,6 +7,7 @@ import Cart from 'screens/Cart';
 import Favorites from 'screens/Favorites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductRoutes from './ProductRoutes';
+import theme from '../global/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,14 +39,14 @@ const AppRoutes = () => {
                         return <Icon name={iconName} size={size} color={color} />;
                     },
                     headerShown: false,
-                    tabBarActiveTintColor: '#101012',
-                    tabBarInactiveTintColor: '#CCC',
+                    tabBarActiveTintColor: theme.colors.roxoClaro,
+                    tabBarInactiveTintColor: theme.colors.cinza,
                     tabBarStyle: {
                         paddingBottom: 5,
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
                         height: 50,
-                        backgroundColor: '#E6E6E6',
+                        backgroundColor: theme.colors.roxo,
                     },
                     tabBarShowLabel: false,
                 })}

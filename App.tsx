@@ -10,7 +10,7 @@ import theme from './src/global/theme';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.roxo }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <AppRoutes />
     </SafeAreaView>
