@@ -20,6 +20,6 @@ export const TextQuantity = styled.Text`
 
 export const ButtonQuantity = styled.TouchableOpacity`
   padding: 5px;
-  border-radius: 5px;
-  border: 0.5px solid ${colors.cinza};
+  border-radius: 50px;
+  border: 0.5px solid ${colors.background};
 `;

@@ -3,7 +3,7 @@ import * as S from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import theme from '../../global/theme';
-import { ProductContext } from 'contexts/ProductContext';
+import { CartType, ProductContext } from 'contexts/ProductContext';
 import { ScreenHeader, Quantity } from 'components/index';
 
 export type ProductType = {
@@ -31,6 +31,7 @@ function Details() {
             quantity,
         }
         handleAddToCart(product)
+        setQuantity(1)
     }
 
     const hasSize = () => {
@@ -71,7 +72,15 @@ function Details() {
                     </S.SizeButtonContainer>
                 </S.SizeContainer>
                 }
-                <Quantity quantity={quantity} setQuantity={setQuantity} />
+                    <S.Quantity>
+                        <S.ButtonQuantity onPress={() => setQuantity(quantity - 1)} disabled={quantity === 1}>
+                            <Icon name="minus" size={25} color={theme.colors.red} />
+                        </S.ButtonQuantity>
+                        <S.TextQuantity>{quantity}</S.TextQuantity>
+                        <S.ButtonQuantity onPress={() => setQuantity(quantity + 1)} >
+                            <Icon name="plus" size={25} color={theme.colors.green} />
+                        </S.ButtonQuantity>
+                    </S.Quantity>
                         
                 </S.Infos>
             </S.InfosContainer>
@@ -83,7 +92,7 @@ function Details() {
                     <S.TextButtonAdd>Comprar agora</S.TextButtonAdd>
                 </S.ButtonBuyNow>
             </S.BuyContainer>
-        </S.Container>
+        </S.Container >
     )
 }
 

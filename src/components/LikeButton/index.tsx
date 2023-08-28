@@ -8,7 +8,8 @@ type LikeButtonProps = {
     itemId: number;
     liked: boolean;
 }
-
+// salavar no context o id do produto e se ele foi curtido ou não
+// salavar no async storage o id do produto e se ele foi curtido ou não
 function LikeButton({handleLike, itemId, liked}: LikeButtonProps) {
     return (
         <S.Like onPress={() => { handleLike(itemId) }}>

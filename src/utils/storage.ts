@@ -26,7 +26,23 @@ export async function saveProduct(key: string, newProduct: CartType) {
     return;
   }
 
-  productsStored.push(newProduct);
+  productsStored.push({...newProduct, quantity: newProduct.quantity + 1});
+
+  storeData(key, productsStored);
+  console.log('Filme salvo com sucesso');
+}
+
+export async function updateProduct(key: string, newProduct: CartType) {
+  let productsStored = await getStoragedData(key);
+
+  //se tiver algum filme salvo com esse msm ID/ ou duplicado precisamos ignorar
+  const hasProduct = productsStored.some(
+    (item: CartType) => item.id === newProduct.id,
+  );
+
+  if (hasProduct) {
+    productsStored.push({...newProduct, quantity: newProduct.quantity + 1});
+  }
 
   storeData(key, productsStored);
   console.log('Filme salvo com sucesso');

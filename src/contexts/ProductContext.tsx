@@ -25,15 +25,20 @@ export const CartProvider = ({ children }: ContextProviderProps) => {
     const [totalProducts, setTotalProducts] = useState(0);
 
     const handleAddToCart = async(item: CartType) => {
-        setTotalProducts((prev) => prev + 1)
+        setTotalProducts((prev) => Number(prev)  + item.quantity)
         setTotalPrice((prev) => prev + Number(item.price) * item.quantity)
-        setCart((prev) => [...prev, item])
+        const productExists = cart.find(i => i.id === item.id)
+        if (productExists) {
+            setCart((prev) => prev.map((product: CartType) => product.id === item.id ? { ...product, quantity: product.quantity + 1 } : product))
+        } else {
+            setCart((prev) => [...prev, item])
+        }
         await saveProduct('@cart', item)
         await storeData('@totalProducts', totalProducts + 1)
     }
 
     const handleRemoveFromCart = async (item: CartType) => {
-        setTotalProducts((prev) => prev - 1)
+        setTotalProducts((prev) => prev - item.quantity)
         setTotalPrice((prev) => prev - Number(item.price) * item.quantity)
         setCart((prev) => prev.filter((product: CartType) => product.id !== item.id))
         await deleteProduct(item.id)
