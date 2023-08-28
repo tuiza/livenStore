@@ -4,7 +4,7 @@ import theme from '../../global/theme';
 const { colors } = theme;
 
 export const Container = styled.View`
-  background-color: ${colors.roxo};
+  background-color: ${colors.cinza};
 `;
 
 export const Category = styled.TouchableOpacity`

@@ -5,11 +5,12 @@ const {colors} = theme;
 
 export const Container = styled.TouchableOpacity`
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 10px;
-  width: 180px;
-  height: 180px;
-  margin-bottom: 30px;
+  width: 45%;
+  height: 200px;
+  margin-bottom: 20px;
+  background-color: ${colors.background};
 `;
 
 export const List = styled.FlatList`
@@ -28,24 +29,14 @@ export const Image = styled.Image`
   justify-content: flex-end;
   width: 80%;
   height: 80%;
-  border-radius: 10px;
-  margin: 10px;
 `;
 
 export const Title = styled.Text`
   font-weight: bold;
-  color: ${colors.background};
+  color: ${colors.roxo};
 `;
 
 export const Price = styled.Text`
-  color: ${colors.green};
+  color: ${colors.roxoClaro};
   font-weight: bold;
-  font-style: italic;
-`;
-
-export const Like = styled.TouchableOpacity`
-position: absolute;
-z-index: 1;
-padding: 10px;
-align-self: flex-end;
 `;

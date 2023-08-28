@@ -40,10 +40,10 @@ const AppRoutes = () => {
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ color, size }) => {
                         const iconName = getIcon(route.name);
-                        const isCart = route.name === 'Carrinho';
+                        const isCartAndHasProducts = route.name === 'Carrinho' && totalProducts > 0;
                         return (
                             <>
-                                {isCart && <Text style={{
+                                {isCartAndHasProducts && <Text style={{
                                     position: 'absolute',
                                     zIndex: 1,
                                     right: 40,

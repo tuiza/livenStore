@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import ProductService, { ProductType } from 'services/products'
-import { FlatList } from 'react-native';
-import Feather from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Filter, Categories } from 'components/index';
 import { useNavigation } from '@react-navigation/native';
+import {LikeButton} from 'components/index';
 
 function Product() {
-    const [products, setProducts] = useState<ProductType[]>([]);
     const navigation = useNavigation()
+    const [products, setProducts] = useState<ProductType[]>([]);
 
     async function getProduct() {
         const productsResponse = await ProductService.index()
@@ -23,6 +22,19 @@ function Product() {
         );
     }
 
+    const Product = ({ item }: { item: ProductType }) => {
+        return (
+            <S.Container onPress={() => navigation.navigate('Details', item)}>
+                <S.ImageContainer>
+                    <LikeButton handleLike={handleLike} itemId={item.id} liked={item.liked} />
+                    <S.Image source={{ uri: item?.image }} />
+                </S.ImageContainer>
+                <S.Title numberOfLines={1} >{item?.title}</S.Title>
+                <S.Price>R$ {item?.price}</S.Price>
+            </S.Container>
+        )
+    }
+
     useEffect(() => {
         getProduct();
     }, [])
@@ -31,25 +43,17 @@ function Product() {
         <>
             <Filter setProducts={setProducts} products={products} getPrduct={getProduct} />
             <Categories setProducts={setProducts} getPrduct={getProduct} />
-            <FlatList
-                style={{ alignSelf: 'center' }}
+            <S.List
                 data={products}
                 numColumns={2}
                 horizontal={false}
                 showsVerticalScrollIndicator={true}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => (
-                    <S.Container onPress={() => navigation.navigate('Details', item)}>
-                        <S.ImageContainer>
-                            <S.Like onPress={() => { handleLike(item.id) }}>
-                                <Feather name={item.liked ? 'heart' : 'heart-outline'} size={22} color="#b82020" />
-                            </S.Like>
-                            <S.Image source={{ uri: item?.image }} />
-                        </S.ImageContainer>
-                        <S.Title numberOfLines={1} >{item?.title}</S.Title>
-                        <S.Price>R$ {item?.price}</S.Price>
-                    </S.Container>
+                    <Product item={item} />
                 )}
+                columnWrapperStyle={{ gap: 10, justifyContent: 'space-between'}}
+
             />
         </>
     )

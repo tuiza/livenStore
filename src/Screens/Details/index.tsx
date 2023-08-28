@@ -3,8 +3,8 @@ import * as S from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import theme from '../../global/theme';
-import { Text } from 'react-native';
 import { ProductContext } from 'contexts/ProductContext';
+import { ScreenHeader, Quantity } from 'components/index';
 
 export type ProductType = {
     id: number;
@@ -23,7 +23,7 @@ function Details() {
     const [readMore, setReadMore] = useState(false);
     const [quantity, setQuantity] = useState(1);
 
-    const { category, id, image, title, price, description } = route.params as ProductType;
+    const { category, id, image, title, price, description, liked } = route.params as ProductType;
 
     const handleAddProductToCart = () => {
         const product = {
@@ -45,14 +45,7 @@ function Details() {
 
     return (
         <S.Container>
-            <S.Header>
-                <S.Button onPress={() => navigation.goBack()} >
-                    <Icon name="arrow-left" size={30} color={theme.colors.roxo} />
-                </S.Button>
-                <S.Button>
-                    <Icon name="heart" size={25} color={theme.colors.red} />
-                </S.Button>
-            </S.Header>
+            <ScreenHeader title="Detalhes" liked={liked} hasFavorite={true} />
             <S.Image source={{ uri: image }}
                 resizeMode="center" />
             <S.InfosContainer>
@@ -78,15 +71,8 @@ function Details() {
                     </S.SizeButtonContainer>
                 </S.SizeContainer>
                 }
-                <S.Quantity>
-                        <S.ButtonQuantity onPress={() => setQuantity(quantity - 1)} disabled={quantity === 1}>
-                        <Icon name="minus" size={25} color={theme.colors.red} />
-                    </S.ButtonQuantity>
-                        <S.TextQuantity>{quantity}</S.TextQuantity>
-                        <S.ButtonQuantity onPress={() => setQuantity(quantity + 1)} >
-                        <Icon name="plus" size={25} color={theme.colors.green} />
-                    </S.ButtonQuantity>
-                </S.Quantity>
+                <Quantity quantity={quantity} setQuantity={setQuantity} />
+                        
                 </S.Infos>
             </S.InfosContainer>
             <S.BuyContainer>

@@ -12,13 +12,6 @@ export const Button = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 
-export const Header = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${theme.colors.background};
-`;
 
 export const Image = styled.Image`
   width: 100%;

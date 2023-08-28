@@ -12,15 +12,6 @@ export const Container = styled.TextInput`
   margin: 12px;
 `;
 
-export const Image = styled.Image`
-  object-fit: contain;
-  align-self: center;
-  width: 80%;
-  height: 80%;
-  border-radius: 10px;
-  margin: 10px;
-`;
-
 export const Search = styled.TouchableOpacity`
   position: absolute;
   top: 20px;
