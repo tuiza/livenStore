@@ -9,6 +9,7 @@ module.exports = {
           screens: "./src/Screens",
           services: "./src/Services",
           components: "./src/components",
+          contexts: "./src/contexts",
         },
       },
     ],

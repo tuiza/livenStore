@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as S from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import theme from '../../global/theme';
 import { Text } from 'react-native';
+import { ProductContext } from 'contexts/ProductContext';
 
 export type ProductType = {
     id: number;
@@ -18,9 +19,19 @@ export type ProductType = {
 function Details() {
     const route = useRoute();
     const navigation = useNavigation();
+    const { cart, handleAddToCart } = useContext(ProductContext)
     const [readMore, setReadMore] = useState(false);
+    const [quantity, setQuantity] = useState(1);
 
     const { category, id, image, title, price, description } = route.params as ProductType;
+
+    const handleAddProductToCart = () => {
+        const product = {
+            ...route.params,
+            quantity,
+        }
+        handleAddToCart(product)
+    }
 
     const hasSize = () => {
         const isClothing = [`men's clothing`, `women's clothing`].includes(category)
@@ -35,7 +46,7 @@ function Details() {
     return (
         <S.Container>
             <S.Header>
-                <S.Button onPress={() => navigation.goBack()}>
+                <S.Button onPress={() => navigation.goBack()} >
                     <Icon name="arrow-left" size={30} color={theme.colors.roxo} />
                 </S.Button>
                 <S.Button>
@@ -68,18 +79,18 @@ function Details() {
                 </S.SizeContainer>
                 }
                 <S.Quantity>
-                    <S.ButtonQuantity>
+                        <S.ButtonQuantity onPress={() => setQuantity(quantity - 1)} disabled={quantity === 1}>
                         <Icon name="minus" size={25} color={theme.colors.red} />
                     </S.ButtonQuantity>
-                    <S.TextQuantity>1</S.TextQuantity>
-                    <S.ButtonQuantity>
+                        <S.TextQuantity>{quantity}</S.TextQuantity>
+                        <S.ButtonQuantity onPress={() => setQuantity(quantity + 1)} >
                         <Icon name="plus" size={25} color={theme.colors.green} />
                     </S.ButtonQuantity>
                 </S.Quantity>
                 </S.Infos>
             </S.InfosContainer>
             <S.BuyContainer>
-                <S.ButtonAddCart>
+                <S.ButtonAddCart onPress={() => handleAddProductToCart()}>
                     <S.TextButtonBuy>Adicionar ao carrinho</S.TextButtonBuy>
                 </S.ButtonAddCart>
                 <S.ButtonBuyNow onPress={() => navigation.navigate('Carrinho' as never)}>
