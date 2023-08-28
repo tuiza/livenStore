@@ -28,7 +28,6 @@ const AppRoutes = () => {
             default:
                 iconName = 'home';
                 break;
-
         }
 
         return iconName;
@@ -61,8 +60,6 @@ const AppRoutes = () => {
                                 <Icon name={iconName} size={size} color={color} />
                             </>
                         );
-
-
                     },
                     headerShown: false,
                     tabBarActiveTintColor: theme.colors.roxoClaro,
