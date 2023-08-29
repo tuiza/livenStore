@@ -9,16 +9,21 @@ import { Text } from 'react-native';
 type LikeButtonProps = {
     handleLike: (id: number) => void;
     item: ProductType;
-    liked: boolean;
 }
 
-function LikeButton({ handleLike, item }: LikeButtonProps) {
-    const { handleFavorite, isFavorite } = useContext(FavoritesContext)
-    const liked = isFavorite(item!.id)
-    console.log(liked)
+function LikeButton({ handleLike, item}: LikeButtonProps) {
+    const { handleFavorite} = useContext(FavoritesContext)
+    const handle = (item: ProductType) => {
+        handleLike(item.id)
+        handleFavorite(item)
+    }
+    // atualiza o estado de liked do item
+    // e adiciona ou remove o item do contexto de favoritos
+
+
     return (
-        <S.Like onPress={()=> handleFavorite(item)}>
-            <Icon name={liked ? 'heart' : 'heart-outline'} size={22} color={theme.colors.red} />
+        <S.Like onPress={()=> handle(item)}>
+            <Icon name={item.liked ? 'heart' : 'heart-outline'} size={22} color={theme.colors.red} />
         </S.Like>
     )
 }

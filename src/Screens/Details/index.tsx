@@ -5,6 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import theme from '../../global/theme';
 import { CartType, ProductContext } from 'contexts/ProductContext';
 import { ScreenHeader, Quantity } from 'components/index';
+import { FavoritesContext } from 'contexts/FavoriteContext';
 
 export type ProductType = {
     id: number;

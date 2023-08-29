@@ -25,23 +25,22 @@ function Product() {
         }
         finally {
             setLoadingData(false)
-            console.log('finally')
         }
     }
 
-    /* const handleLike = (id: number) => {
+    const handleLike = (id: number) => {
         setProducts((prev) =>
             prev?.map((item) =>
                 item.id === id ? { ...item, liked: !item.liked } : item
             )
         );
-    } */
+    }
 
     const Product = ({ item }: { item: ProductType }) => {
         return (
             <S.Container onPress={() => navigation.navigate('Details', item)}>
                 <S.ImageContainer>
-                    <LikeButton handleLike={()=> {}} item={item} liked={true} />
+                    <LikeButton handleLike={handleLike} item={item} />
                     <S.Image source={{ uri: item?.image }} />
                 </S.ImageContainer>
                 <S.Title numberOfLines={1} >{item?.title}</S.Title>

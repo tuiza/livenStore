@@ -16,6 +16,7 @@ type ScreenHeaderProps = {
 
 function ScreenHeader({title, hasFavorite, item}: ScreenHeaderProps) {
     const navigation = useNavigation();
+    const { handleFavorite } = useContext(FavoritesContext)
     return (
         <S.Header>
                 <S.Button onPress={() => navigation.goBack()} >
@@ -24,7 +25,7 @@ function ScreenHeader({title, hasFavorite, item}: ScreenHeaderProps) {
                 {title && <S.Title>{title}</S.Title>}
             
             {hasFavorite &&
-                <LikeButton item={item!}/>
+                <LikeButton item={item!} handleLike={()=>{} }/>
             }
             </S.Header>
     )

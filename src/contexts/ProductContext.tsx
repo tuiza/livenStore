@@ -59,7 +59,6 @@ export const CartProvider = ({ children }: ContextProviderProps) => {
 
 
     const handleRemoveAllFromCart = async (item: CartType) => {
-        console.log(item)
         setTotalProducts((prev) => prev > item.quantity ? prev - item.quantity : 0)
         setTotalPrice((prev) => prev > Number(item.price) * item.quantity ? prev - Number(item.price) * item.quantity : 0)
         setCart((prev) => prev.filter((product: CartType) => product.id !== item.id))

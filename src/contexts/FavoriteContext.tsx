@@ -21,9 +21,12 @@ export const FavoritesProvider = ({ children }: ContextProviderProps) => {
         await storeData('@favorites', item)
     }
 
+
     const isFavorite = (item: ProductType) => {
+        if(!favorites) return false
         return favorites.find(i => i.id === item.id)
     }
+
     const getFavorites = async () => {
         const data = await getStoragedData('@favorites')
         if (data) {

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import api from './api';
+import { getStoragedData } from 'src/utils/storage';
 
 export type ProductType = {
   id: number;
