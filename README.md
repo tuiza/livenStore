@@ -48,6 +48,8 @@ Loja de produtos desenvolvido com o React Native
 
 ## 📱 Demonstração ##
 
+- O apk está disponível em: [APK](https://github.com/tuiza/livenStore/releases)
+
 <div align="center" id="top"> 
   <img src="src\assets\demo.gif" alt="Video do app" title="Demonstracao" />
 
