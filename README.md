@@ -26,8 +26,7 @@
   <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-pré-requisitos">Pré requisitos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
-  <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
-  <a href="https://github.com/luizamarlene" target="_blank">Autoras</a>
+  <a href="https://github.com/luizamarlene" target="_blank">Autora</a>
 </p>
 
 <br>
@@ -46,7 +45,7 @@ Loja de produtos desenvolvido com o React Native
 
 :heavy_check_mark: Lista de favoritos;
 
-## :sparkles: Demonstração ##
+## :demo: Demonstração ##
 
 <div align="center" id="top"> 
   <img src="src\assets\demo.gif" alt="Video do app" title="Demonstracao" />
