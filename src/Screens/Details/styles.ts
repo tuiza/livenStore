@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import theme from '../../global/theme';
+import LikeButton from 'components/LikeButton';
 
 export const Container = styled.View`
   display: flex;
@@ -31,9 +32,8 @@ export const Infos = styled.ScrollView`
   border-top-right-radius: 40px;
   display: flex;
   background-color: ${theme.colors.cinza};
-  padding: 10px;
   flex: 1;
-  padding-bottom: 10px;
+  padding: 15px;
 `;
 
 export const Category = styled.Text`
@@ -185,4 +185,14 @@ export const ButtonQuantity = styled.TouchableOpacity`
   padding: 5px;
   border-radius: 5px;
   border: 0.5px solid ${theme.colors.cinza};
+`;
+
+export const Like = styled(LikeButton)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  padding: 10px;
+  align-self: flex-end;
+  justify-content: center;
 `;

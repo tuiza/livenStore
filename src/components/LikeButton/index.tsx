@@ -4,12 +4,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import theme from '../../global/theme';
 import { FavoritesContext } from '../../contexts/FavoriteContext';
 import { ProductType } from 'services/products';
-import { Text } from 'react-native';
+import { Text, TouchableOpacityProps } from 'react-native';
 
 type LikeButtonProps = {
     handleLike: (id: number) => void;
     item: ProductType;
-}
+} & TouchableOpacityProps
 
 function LikeButton({ handleLike, item}: LikeButtonProps) {
     const { handleFavorite} = useContext(FavoritesContext)
@@ -23,7 +23,7 @@ function LikeButton({ handleLike, item}: LikeButtonProps) {
 
     return (
         <S.Like onPress={()=> handle(item)}>
-            <Icon name={item.liked ? 'heart' : 'heart-outline'} size={22} color={theme.colors.red} />
+            <Icon name={item.liked ? 'heart' : 'heart-outline'} size={25} color={theme.colors.red} />
         </S.Like>
     )
 }

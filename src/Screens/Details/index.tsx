@@ -47,7 +47,7 @@ function Details() {
 
     return (
         <S.Container>
-            <ScreenHeader title="Detalhes" hasFavorite={true} item={route.params!} />
+            <ScreenHeader title="Detalhes" hasFavorite={false} item={route.params!} backgroundWhite={true} />
             <S.Image source={{ uri: image }}
                 resizeMode="center" />
             <S.InfosContainer>

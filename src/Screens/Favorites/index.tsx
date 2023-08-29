@@ -6,15 +6,35 @@ import React, { useContext } from 'react'
 import { FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ButtonsContainer, Column, Product, ProductImage, ProductInfo, ProductName, ProductPrice, RemoveButton } from 'screens/Cart/styles';
-import { ButtonQuantity, Quantity } from 'screens/Details/styles';
 import { ProductType } from 'services/products';
+import * as S from './styles'
+import LottieView from "lottie-react-native";
+import loadingA from '../../assets/noData.json'
 
 function Favorites() {
     const { favorites, handleFavorite } = useContext(FavoritesContext)
-    const { handleAddOneToCart } = useContext(ProductContext)
+    const { handleAddToCart } = useContext(ProductContext)
+    const addCart = (item: ProductType) => {
+        const product = {
+            ...item,
+            quantity: 1,
+        }
+        handleAddToCart(product)
+    }
     return (
         <>
-        < ScreenHeader title="Favoritos" />
+            < ScreenHeader title="Favoritos" />
+            {favorites.length === 0 &&
+                <S.NoData>
+                    <LottieView
+                        source={loadingA}
+                        autoPlay
+                        loop
+                        style={{ width: 300, height: 300 }}
+                    />
+                    <S.Text>Nenhum Produto Favoritado</S.Text>
+                </S.NoData>
+            }
             <FlatList
                 data={favorites}
                 keyExtractor={item => item.id.toString()}
@@ -27,21 +47,12 @@ function Favorites() {
                                 <ProductPrice>R$ {Number(item.price).toFixed(2)}</ProductPrice>
                             </ProductInfo>
                             <ButtonsContainer>
-                                {/* <Quantity>
-                                    <ButtonQuantity onPress={() => handleRemoveOneFromCart(item)}>
-                                        <Icon name="minus" size={25} color={theme.colors.red} />
-                                    </ButtonQuantity>
-                                    <TextQuantity>{item.quantity}</TextQuantity>
-                                    <ButtonQuantity onPress={() => handleAddOneToCart(item)} >
-                                        <Icon name="plus" size={25} color={theme.colors.green} />
-                                    </ButtonQuantity>
-                                </Quantity> */}
-                                <RemoveButton onPress={() => { handleAddOneToCart(item)}}>
-                                    <Icon name="plus" size={24} color="#fff" />
-                                </RemoveButton>
-                                <RemoveButton onPress={() => {handleFavorite(item)}}>
+                                <S.AddCartButton onPress={() => { addCart(item)}}>
+                                    <Icon name="cart-plus" size={24} color="#fff" />
+                                </S.AddCartButton>
+                                <S.RemoveButton onPress={() => {handleFavorite(item)}}>
                                     <Icon name="delete" size={24} color="#fff" />
-                                </RemoveButton>
+                                </S.RemoveButton>
                             </ButtonsContainer>
 
                         </Column>

@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as S from './styles'
-import {Product, Filter} from 'components/index'
+import {Product} from 'components/index'
 
-function App() {
-    
-
+function Home() {
     return (
         <S.Container>
             <Product />
@@ -12,5 +10,5 @@ function App() {
     )
 }
 
-export default App
+export default Home
 

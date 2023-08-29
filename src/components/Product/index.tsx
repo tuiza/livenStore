@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import ProductService, { ProductType } from 'services/products'
-import { Filter, Categories } from 'components/index';
+import { Filter, Categories, LikeButton } from 'components/index';
 import { useNavigation } from '@react-navigation/native';
-import { LikeButton } from 'components/index';
 import LottieView from "lottie-react-native";
 import { Alert } from 'react-native';
-import loadingA from '../../assets/homeLoading.json'
+import loading from '../../assets/noData.json'
+import { NoData, Text } from 'screens/Favorites/styles';
+import noData from '../../assets/homeLoading.json'
 
 function Product() {
     const navigation = useNavigation()
@@ -59,12 +60,23 @@ function Product() {
             <Categories setProducts={setProducts} getPrduct={getProduct} setLoading={setLoadingData} />
             {loadingData ? <LottieView
                 
-                source={loadingA}
-                style={{ width: '100%', height: '70%', alignSelf: 'center', justifyContent: 'center'}}
+                source={loading}
+                style={{ width: '90%', height: '70%', alignSelf: 'center', justifyContent: 'center'}}
                 autoPlay loop />
                 :
                 <S.List
                     data={products}
+                    ListEmptyComponent={
+                        <NoData>
+                            <LottieView
+                                source={noData}
+                                autoPlay
+                                loop
+                                style={{ width: 300, height: 300 }}
+                            />
+                            <Text>Nenhum Produto Encontrado</Text>
+                        </NoData>
+                    }
                     numColumns={2}
                     horizontal={false}
                     showsVerticalScrollIndicator={true}
