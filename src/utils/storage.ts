@@ -29,7 +29,6 @@ export async function saveProduct(key: string, newProduct: CartType) {
   productsStored.push({...newProduct, quantity: newProduct.quantity + 1});
 
   storeData(key, productsStored);
-  console.log('Filme salvo com sucesso');
 }
 
 export async function updateProduct(key: string, newProduct: CartType) {
@@ -45,7 +44,6 @@ export async function updateProduct(key: string, newProduct: CartType) {
   }
 
   storeData(key, productsStored);
-  console.log('Filme salvo com sucesso');
 }
 
 // Deletar
@@ -58,7 +56,6 @@ export async function deleteProduct(id: number) {
   });
 
   await AsyncStorage.setItem('@cart', JSON.stringify(products));
-  console.log('Filme deletado com sucesso');
   return products;
 }
 

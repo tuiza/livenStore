@@ -26,12 +26,10 @@ function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
             const response = await CategoryService.index()
             setCategories(response)    
         }
-        catch (error) {
-            console.log(error)
+        catch (error) {        
         }
         finally {
             setLoading(false)
-            console.log('finally')
         }
     }
 
@@ -45,11 +43,11 @@ function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
                 setProducts(response)
             }
             catch (error) {
-                console.log(error)
+                
             }
             finally {
                 setLoading(false)
-                console.log('finally')
+                
             }
         }
     }
