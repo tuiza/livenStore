@@ -3,7 +3,7 @@
 <h1 align="center">Liven Store</h1>
 
 <div align="center" id="top"> 
-  <img src="./assets/evilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
+  <img src="./assets/app.gif" alt="Video do app" title="Demonstracao" />
 
   &#xa0;
 
