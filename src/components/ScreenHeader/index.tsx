@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as S from './styles'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useNavigation } from '@react-navigation/native';
 import theme from '../../global/theme';
+import { LikeButton } from '..';
+import { ProductType } from 'services/products';
+import { FavoritesContext } from 'contexts/FavoriteContext';
 
 type ScreenHeaderProps = {
     title: string;
     liked?: boolean;
     hasFavorite?: boolean;
+    item?: ProductType;
 }
 
-function ScreenHeader({title, hasFavorite}: ScreenHeaderProps) {
+function ScreenHeader({title, hasFavorite, item}: ScreenHeaderProps) {
     const navigation = useNavigation();
     return (
         <S.Header>
@@ -18,9 +22,10 @@ function ScreenHeader({title, hasFavorite}: ScreenHeaderProps) {
                     <Icon name="arrow-left" size={30} color={theme.colors.roxo} />
             </S.Button>
                 {title && <S.Title>{title}</S.Title>}
-            <S.Button>
-                {hasFavorite && <Icon name="heart" size={25} color={theme.colors.red} />}
-                </S.Button>
+            
+            {hasFavorite &&
+                <LikeButton item={item!}/>
+            }
             </S.Header>
     )
 }

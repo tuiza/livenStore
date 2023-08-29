@@ -46,7 +46,7 @@ function Details() {
 
     return (
         <S.Container>
-            <ScreenHeader title="Detalhes" liked={liked} hasFavorite={true} />
+            <ScreenHeader title="Detalhes" hasFavorite={true} item={route.params!} />
             <S.Image source={{ uri: image }}
                 resizeMode="center" />
             <S.InfosContainer>

@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as S from './styles'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import theme from '../../global/theme';
+import { FavoritesContext } from '../../contexts/FavoriteContext';
+import { ProductType } from 'services/products';
+import { Text } from 'react-native';
 
 type LikeButtonProps = {
     handleLike: (id: number) => void;
-    itemId: number;
+    item: ProductType;
     liked: boolean;
 }
-// salavar no context o id do produto e se ele foi curtido ou não
-// salavar no async storage o id do produto e se ele foi curtido ou não
-function LikeButton({handleLike, itemId, liked}: LikeButtonProps) {
+
+function LikeButton({ handleLike, item }: LikeButtonProps) {
+    const { handleFavorite, isFavorite } = useContext(FavoritesContext)
+    const liked = isFavorite(item!.id)
+    console.log(liked)
     return (
-        <S.Like onPress={() => { handleLike(itemId) }}>
+        <S.Like onPress={()=> handleFavorite(item)}>
             <Icon name={liked ? 'heart' : 'heart-outline'} size={22} color={theme.colors.red} />
         </S.Like>
     )
