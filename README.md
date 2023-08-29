@@ -61,7 +61,6 @@ Loja de produtos desenvolvido com o React Native
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Node.js](https://nodejs.org/en/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Lottie React Native](https://github.com/lottie-react-native/lottie-react-native)
