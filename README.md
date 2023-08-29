@@ -1,6 +1,6 @@
 
 
-<h1 align="center">Evil Royal: Jogo Da Memória</h1>
+<h1 align="center">Liven Store</h1>
 
 <div align="center" id="top"> 
   <img src="./assets/evilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
@@ -36,11 +36,17 @@
 
 ## :dart: Sobre ##
 
-Jogo da memória desenvolvido com o React Native e Expo
+Loja de produtos desenvolvido com o React Native
 
 ## :sparkles: Funcionalidades ##
 
-:heavy_check_mark: Jogo educativo;
+:heavy_check_mark: Visualização de produtos;
+
+:heavy_check_mark: Agrupamento por categoria de produtos;
+
+:heavy_check_mark: Adicionar e Remover produtos do carrinho;
+
+:heavy_check_mark: Lista de favoritos;
 
 
 ## :rocket: Tecnologias ##
@@ -53,7 +59,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Lottie React Native](https://github.com/lottie-react-native/lottie-react-native)
 - [Styled Components](https://styled-components.com/)
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
-- 
+- [React Navigation](https://reactnavigation.org/)
 
 ## :white_check_mark: Pré requisitos ##
 
@@ -66,12 +72,12 @@ Antes de começar :checkered_flag:, você precisa ter o Expo instalado em sua m�
 $ git clone https://github.com/tuiza/livenStore
 
 # Entre na pasta
-$ cd memoria-disney
+$ cd livenStore
 
 # Instale as dependências
 $ yarn
 
-# Para iniciar o projeto
+# Para iniciar o projeto no android
 $ yarn android
 
 # O app vai inicializar em <http://localhost:3000>
