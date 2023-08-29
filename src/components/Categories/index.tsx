@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import { FlatList, Text } from 'react-native'
 import { ProductType } from 'services/products'
-import Feather from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import CategoryService, { CategoriesType } from 'services/categories'
 import loadingA from '../../assets/homeLoading.json'
 import LottieView from "lottie-react-native";
+import theme from '../../../src/global/theme'
 
 type ProductsType = ProductType & {
     liked: boolean
@@ -14,7 +15,7 @@ type ProductsType = ProductType & {
 type FilterProps = {
     setProducts: (products: ProductsType[]) => void
     getPrduct: () => void
-    setLoading: (b:boolean) => void
+    setLoading: (b: boolean) => void
 }
 
 function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
@@ -24,12 +25,29 @@ function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
         try {
             setLoading(true)
             const response = await CategoryService.index()
-            setCategories(response)    
+            setCategories(response)
         }
-        catch (error) {        
+        catch (error) {
         }
         finally {
             setLoading(false)
+        }
+    }
+
+    const getIcon = (category: CategoriesType) => {
+        switch (category) {
+            case 'electronics':
+                return 'cellphone'
+            case 'jewelery':
+                return 'diamond'
+            case `men's clothing`:
+                return 'human-male-boy'
+            case `women's clothing`:
+                return 'human-female-girl'
+            case 'All':
+                return 'select-all'
+            default:
+                return ''
         }
     }
 
@@ -43,11 +61,11 @@ function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
                 setProducts(response)
             }
             catch (error) {
-                
+
             }
             finally {
                 setLoading(false)
-                
+
             }
         }
     }
@@ -63,16 +81,16 @@ function Categories({ getPrduct, setProducts, setLoading }: FilterProps) {
 
     return (
         <S.Container>
-                <FlatList
-                    data={categoriesData}
-                    horizontal={true}
-                    keyExtractor={(item, i) => i.toString()}
-                    renderItem={({ item }: { item: CategoriesType }) => (
-                        <S.Category onPress={() => getCategory(item)}>
-                            <Text style={{ color: 'black' }}>{item.toUpperCase()}</Text>
-                        </S.Category>
-                    )}
-                />
+            <FlatList
+                data={categoriesData}
+                horizontal={true}
+                keyExtractor={(item, i) => i.toString()}
+                renderItem={({ item }: { item: CategoriesType }) => (
+                    <S.Category onPress={() => getCategory(item)}>
+                        <Icon name={getIcon(item)} size={25} color={theme.colors.roxoClaro} />
+                    </S.Category>
+                )}
+            />
         </S.Container>
 
     )

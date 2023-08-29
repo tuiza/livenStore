@@ -15,7 +15,7 @@ function App(): React.JSX.Element {
     <CartProvider>
       <FavoritesProvider>
         <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.cinza }}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <StatusBar barStyle={'dark-content'} />
           <AppRoutes />
         </SafeAreaView>
       </FavoritesProvider>
