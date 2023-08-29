@@ -1,79 +1,92 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<h1 align="center">Evil Royal: Jogo Da Memória</h1>
 
-## Step 1: Start the Metro Server
+<div align="center" id="top"> 
+  <img src="./assets/evilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+  &#xa0;
 
-To start Metro, run the following command from the _root_ of your React Native project:
+  <!-- <a href="https://memoriadisney.netlify.com">Demo</a> -->
+</div>
+
+<p align="center">
+	<a href="https://play.google.com/store/apps/details?id=com.luiza_marlene.memoriadisney"> ⬇️ Download na Play Store</a> 
+</p>
+
+<!-- Status -->
+
+<!-- <h4 align="center"> 
+	🚧  Memoria Disney 🚀 Em construção...  🚧
+</h4> 
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-funcionalidades">Funcionalidades</a> &#xa0; | &#xa0;
+  <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-pré-requisitos">Pré requisitos</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
+  <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
+  <a href="https://github.com/luizamarlene" target="_blank">Autoras</a>
+</p>
+
+<br>
+
+## :dart: Sobre ##
+
+Jogo da memória desenvolvido com o React Native e Expo
+
+## :sparkles: Funcionalidades ##
+
+:heavy_check_mark: Jogo educativo;
+
+
+## :rocket: Tecnologias ##
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node.js](https://nodejs.org/en/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Lottie React Native](https://github.com/lottie-react-native/lottie-react-native)
+- [Styled Components](https://styled-components.com/)
+- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
+- 
+
+## :white_check_mark: Pré requisitos ##
+
+Antes de começar :checkered_flag:, você precisa ter o Expo instalado em sua máquina, pra isso siga esse  tutorial: [Instalação Expo](https://docs.expo.dev/get-started/installation/)
+
+## :checkered_flag: Começando ##
 
 ```bash
-# using npm
-npm start
+# Clone este repositório
+$ git clone https://github.com/tuiza/livenStore
 
-# OR using Yarn
-yarn start
+# Entre na pasta
+$ cd memoria-disney
+
+# Instale as dependências
+$ yarn
+
+# Para iniciar o projeto
+$ yarn android
+
+# O app vai inicializar em <http://localhost:3000>
 ```
 
-## Step 2: Start your Application
+## :memo: Licença ##
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-### For Android
 
-```bash
-# using npm
-npm run android
+Feito com :heart: por: 
+<a href="https://github.com/tuiza" target="_blank">Luiza Marlene</a> |
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
 
-```bash
-# using npm
-npm run ios
+&#xa0;
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+<a href="#top">Voltar para o topo</a>
