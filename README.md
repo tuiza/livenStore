@@ -3,7 +3,6 @@
 <h1 align="center">Liven Store</h1>
 
 <div align="center" id="top"> 
-	src\assets\app.gif
   <img src="src\assets\app.gif" alt="Video do app" title="Demonstracao" />
 
   &#xa0;
@@ -11,9 +10,6 @@
   <!-- <a href="https://memoriadisney.netlify.com">Demo</a> -->
 </div>
 
-<p align="center">
-	<a href="https://play.google.com/store/apps/details?id=com.luiza_marlene.memoriadisney"> ⬇️ Download na Play Store</a> 
-</p>
 
 <!-- Status -->
 
