@@ -39,13 +39,14 @@ Loja de produtos desenvolvido com o React Native
 
 :heavy_check_mark: Visualização de produtos;
 
-:heavy_check_mark: Agrupamento por categoria de produtos;
+:heavy_check_mark: Produtos agrupados por categoria;
 
 :heavy_check_mark: Adicionar e Remover produtos do carrinho;
 
 :heavy_check_mark: Lista de favoritos;
 
-## 📱: Demonstração ##
+
+## 📱 Demonstração ##
 
 <div align="center" id="top"> 
   <img src="src\assets\demo.gif" alt="Video do app" title="Demonstracao" />
