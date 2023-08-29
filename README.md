@@ -22,6 +22,7 @@
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
   <a href="#sparkles-funcionalidades">Funcionalidades</a> &#xa0; | &#xa0;
+  <a href="#demo">Demonstração</a> &#xa0; | &#xa0;
   <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-pré-requisitos">Pré requisitos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
@@ -44,6 +45,16 @@ Loja de produtos desenvolvido com o React Native
 :heavy_check_mark: Adicionar e Remover produtos do carrinho;
 
 :heavy_check_mark: Lista de favoritos;
+
+## :sparkles: Demonstração ##
+
+<div align="center" id="top"> 
+  <img src="src\assets\demo.gif" alt="Video do app" title="Demonstracao" />
+
+  &#xa0;
+
+  <!-- <a href="https://memoriadisney.netlify.com">Demo</a> -->
+</div>
 
 
 ## :rocket: Tecnologias ##
