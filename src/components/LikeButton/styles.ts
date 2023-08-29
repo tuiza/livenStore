@@ -8,4 +8,5 @@ export const Like = styled.TouchableOpacity`
   z-index: 1;
   padding: 10px;
   align-self: flex-end;
+  elevation: 5;
 `;

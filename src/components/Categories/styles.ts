@@ -17,6 +17,7 @@ export const Category = styled.TouchableOpacity`
   margin: 12px;
   align-items: center;
   justify-content: center;
+  elevation: 5;
 `;
 
 export const Image = styled.Image`

@@ -3,15 +3,30 @@ import * as S from './styles'
 import ProductService, { ProductType } from 'services/products'
 import { Filter, Categories } from 'components/index';
 import { useNavigation } from '@react-navigation/native';
-import {LikeButton} from 'components/index';
+import { LikeButton } from 'components/index';
+import LottieView from "lottie-react-native";
+import { Alert } from 'react-native';
+import loadingA from '../../assets/homeLoading.json'
 
 function Product() {
     const navigation = useNavigation()
     const [products, setProducts] = useState<ProductType[]>([]);
+    const [loadingData, setLoadingData] = useState(true);
+    const [error, setError] = useState(false);
 
     async function getProduct() {
-        const productsResponse = await ProductService.index()
-        setProducts(productsResponse)
+        try {
+            const productsResponse = await ProductService.index()
+            setProducts(productsResponse)
+        }
+        catch (error) {
+            Alert.alert('Erro ao carregar produtos')
+            setError(true)
+        }
+        finally {
+            setLoadingData(false)
+            console.log('finally')
+        }
     }
 
     const handleLike = (id: number) => {
@@ -42,19 +57,26 @@ function Product() {
     return (
         <>
             <Filter setProducts={setProducts} products={products} getPrduct={getProduct} />
-            <Categories setProducts={setProducts} getPrduct={getProduct} />
-            <S.List
-                data={products}
-                numColumns={2}
-                horizontal={false}
-                showsVerticalScrollIndicator={true}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({ item }) => (
-                    <Product item={item} />
-                )}
-                columnWrapperStyle={{ gap: 10, justifyContent: 'space-between'}}
+            <Categories setProducts={setProducts} getPrduct={getProduct} setLoading={setLoadingData} />
+            {loadingData ? <LottieView
+                
+                source={loadingA}
+                style={{ width: '100%', height: '70%', alignSelf: 'center', justifyContent: 'center'}}
+                autoPlay loop />
+                :
+                <S.List
+                    data={products}
+                    numColumns={2}
+                    horizontal={false}
+                    showsVerticalScrollIndicator={true}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem={({ item }) => (
+                        <Product item={item} />
+                    )}
+                    columnWrapperStyle={{ gap: 10, justifyContent: 'space-between' }}
 
-            />
+                />
+            }
         </>
     )
 }

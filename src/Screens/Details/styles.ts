@@ -132,13 +132,9 @@ export const BuyContainer = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
   justify-content: space-between;
   justify-self: flex-end;
   padding: 10px;
-  background-color: ${theme.colors.background};
-  border-top-right-radius: 40px;
-  border-top-left-radius: 40px;
 `;
 
 export const ButtonAddCart = styled.TouchableOpacity`
@@ -151,6 +147,8 @@ export const ButtonAddCart = styled.TouchableOpacity`
   margin-top: 40px;
   align-self: center;
   border: 1px solid ${theme.colors.roxoClaro};
+  box-shadow: 0px 0px 5px ${theme.colors.roxoClaro};
+  
 `;
 
 export const ButtonBuyNow = styled.TouchableOpacity`
@@ -160,6 +158,7 @@ export const ButtonBuyNow = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 10px;
   align-self: center;
+  elevation: 5;
 `;
 
 export const TextButtonBuy = styled.Text`

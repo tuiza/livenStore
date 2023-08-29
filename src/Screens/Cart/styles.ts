@@ -17,6 +17,7 @@ export const Product = styled.TouchableOpacity`
   padding: 10px;
   background-color: ${theme.colors.background};
   border-radius: 20px;
+  elevation: 5;
 `;
 
 export const Header = styled.View`
@@ -115,10 +116,12 @@ export const BuyButton = styled.TouchableOpacity`
   border-radius: 10px;
   background-color: ${theme.colors.roxoClaro};
   margin-bottom: 10px;
+  elevation: 5;
 `;
 
 export const RemoveButton = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 50px;
   background-color: ${theme.colors.red};
+  elevation: 5;
 `;

@@ -11,6 +11,7 @@ export const Container = styled.TouchableOpacity`
   height: 200px;
   margin-bottom: 20px;
   background-color: ${colors.background};
+  elevation: 5;
 `;
 
 export const List = styled.FlatList`
